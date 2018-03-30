@@ -22,6 +22,7 @@ from model_utils import Choices
 from jsonfield.fields import JSONField
 
 from django.contrib.auth.models import Group
+import uuid
 
 
 # SOFT_DELETE = getattr(settings, 'NOTIFICATIONS_SOFT_DELETE', False)
@@ -166,6 +167,9 @@ class Notification(models.Model):
         <a href="http://oebfare.com/">brosner</a> commented on <a href="http://github.com/pinax/pinax">pinax/pinax</a> 2 hours ago
 
     """
+
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True)
+
     LEVELS = Choices('success', 'info', 'warning', 'error')
     level = models.CharField(choices=LEVELS, default=LEVELS.info, max_length=20)
 

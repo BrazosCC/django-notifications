@@ -6,8 +6,8 @@ if sys.version > '3':
 
 
 def slug2id(slug):
-    return long(slug) - 110909
+    return slug
 
 
 def id2slug(id):
-    return id + 110909
+    return id
